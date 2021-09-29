@@ -1,0 +1,10 @@
+version: '3'
+services:
+  react-app:
+    build:
+      context: .
+      dockerfile: dev.Dockerfile
+    ports:
+      - "8080:3000"
+    volumes:
+      - ".:/app"
