@@ -1,5 +1,5 @@
 import './App.css';
-import { header as Header } from "@c/header";
+import { Header } from "@c/header";
 import { Tasks } from '@c/tasks'
 import { useState } from 'react';
 import { BrowserRouter as Router, Route, Link, Switch } from 'react-router-dom'
@@ -20,8 +20,9 @@ function App() {
   return (
     <Router>
       <header>this is the header</header>
+      <h1>Only show in homepage</h1>
       <Link to="/test">Test link</Link>
-
+      {/* Switch will match the current route with the registered components inside */}
       <Switch>
         <Route exact path="/" render={(props) => (
           <main style={{ width: '90%', maxWidth: '600px', margin: '0 auto' }}>
@@ -29,6 +30,7 @@ function App() {
             <Tasks tasks={tasks} onDelete={deleteTask}></Tasks>
           </main>
         )} />
+        {/* 404 page */}
         <Route render={(props) => (
           <>
             <h1>404</h1>
