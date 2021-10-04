@@ -1,10 +1,11 @@
 
-export const Button = ({children, strip}) => {
+export const Button = ({children, strip, onClick}) => {
     return (
         <button
             style={{
             ...(strip ? stripStyle : {})
             }}
+            onClick={onClick}
         >
             { children }
         </button>
