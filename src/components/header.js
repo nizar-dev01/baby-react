@@ -22,8 +22,8 @@ export const Header = () => {
         console.count('calling useEffect');
     },[state.bool])
     return (
-        <header style={{ padding: '20px', display: 'flex', justifyContent: 'space-between' }}>
-
+        <header style={{ padding: '20px', display: 'flex', justifyContent: 'space-between', flexWrap: 'wrap' }}>
+            
             <h1>Task Tracker : {state.count}</h1>
             <Button onClick={() => {
                 dispatch('increment')

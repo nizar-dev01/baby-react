@@ -3,6 +3,7 @@ import { Header } from "@c/header";
 import { Tasks } from '@c/tasks'
 import { useState } from 'react';
 import { BrowserRouter as Router, Route, Link, Switch } from 'react-router-dom'
+import { ContextBuilder } from '@c/contextBuilder'
 function App() {
   const [tasks, setTasks] = useState([
     {
@@ -19,17 +20,29 @@ function App() {
   }
   return (
     <Router>
-      <header>this is the header</header>
+      
+      <main style={{ width: '90%', maxWidth: '600px', margin: '0 auto' }}>
+        <header>this is the header</header>
       <h1>Only show in homepage</h1>
-      <Link to="/test">Test link</Link>
+      <ul style={{ width: '100%'}}>
+                <li>
+                    <Link to="/">home</Link>
+                </li>
+                <li>
+                    <Link to="/context">context</Link>
+                </li>
+            </ul>
       {/* Switch will match the current route with the registered components inside */}
       <Switch>
         <Route exact path="/" render={(props) => (
-          <main style={{ width: '90%', maxWidth: '600px', margin: '0 auto' }}>
+         <>
             <Header title={1} />
             <Tasks tasks={tasks} onDelete={deleteTask}></Tasks>
-          </main>
+          </>
         )} />
+        <Route exact path="/context">
+          <ContextBuilder />
+        </Route>
         {/* 404 page */}
         <Route render={(props) => (
           <>
@@ -38,11 +51,12 @@ function App() {
           </>
         )} />
       </Switch>
-
-
       <footer>
         this is the footer
       </footer>
+      </main>
+
+
     </Router>
   );
 }
