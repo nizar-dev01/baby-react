@@ -1,4 +1,4 @@
-import { Button } from './button'
+import { Button } from '@c/button'
 import { useLocation } from 'react-router-dom'
 export const Header = () => {
     const location = useLocation()
